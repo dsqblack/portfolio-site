@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S20 Y2K 液态金属</title>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Chakra+Petch:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--chrome1:#e8e8e8;--chrome2:#9aa0a6;--chrome3:#5f6368;--bg:#0a0a0f;--blue:#4fc3ff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#eee;font-family:'Chakra Petch',sans-serif;line-height:1.6;
+background-image:radial-gradient(circle at 50% -20%,rgba(79,195,255,.25),transparent 55%),linear-gradient(180deg,#0a0a0f,#151022)}
+.nav{border-bottom:1px solid rgba(255,255,255,.15);background:rgba(10,10,15,.6);backdrop-filter:blur(14px);position:sticky;top:0;z-index:10}
+.nav-in{max-width:1150px;margin:0 auto;padding:18px 40px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:'Audiowide',cursive;font-size:24px;background:linear-gradient(180deg,#fff,#9aa0a6 50%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.06em}
+.links{display:flex;gap:28px;font-size:14px;text-transform:uppercase;letter-spacing:.08em}
+.links a{color:#b0b8c0;text-decoration:none;transition:.3s}.links a:hover{color:var(--blue)}
+.wrap{max-width:1150px;margin:0 auto;padding:0 40px}
+.hero{padding:100px 0 70px;text-align:center}
+.eyebrow{font-size:13px;letter-spacing:.4em;text-transform:uppercase;color:var(--blue);margin-bottom:20px}
+h1{font-family:'Audiowide',cursive;font-size:clamp(40px,7vw,82px);line-height:1.05;letter-spacing:.02em;
+background:linear-gradient(180deg,#ffffff,#c8ced6 40%,#6b7280 55%,#ffffff 75%,#9aa0a6);-webkit-background-clip:text;background-clip:text;color:transparent;
+filter:drop-shadow(0 2px 1px rgba(0,0,0,.5))}
+.sub{margin-top:24px;font-size:17px;color:#a0a8b4;max-width:52ch;margin-left:auto;margin-right:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:28px;padding-bottom:90px}
+.card{background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.18);border-radius:22px;overflow:hidden;text-decoration:none;color:#eee;transition:.3s;display:block;position:relative}
+.card::after{content:'';position:absolute;inset:0;border-radius:22px;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);opacity:0;transition:.4s;pointer-events:none}
+.card:hover{transform:translateY(-6px);border-color:rgba(79,195,255,.6);box-shadow:0 20px 50px -15px rgba(79,195,255,.5)}
+.card:hover::after{opacity:1}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;filter:saturate(1.1) contrast(1.1)}
+.cbody{padding:22px 24px 26px}
+.ctitle{font-family:'Audiowide',cursive;font-size:20px;background:linear-gradient(180deg,#fff,#9aa0a6);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px;letter-spacing:.03em}
+.csub{font-size:14px;color:#a0a8b4}
+.tags{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.tag{font-size:12px;color:var(--blue);border:1px solid rgba(79,195,255,.4);padding:3px 11px;border-radius:20px;background:rgba(79,195,255,.08)}
+footer{padding:36px 40px;max-width:1150px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px;color:#707884;letter-spacing:.1em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><div class="brand">PORTFOLIO</div><div class="links"><a href="#">作品</a><a href="#">关于</a><a href="#">联系</a></div></div></div>
+<div class="wrap hero"><div class="eyebrow">2 0 2 6 · S E L E C T E D</div><h1>界面设计与前端实现</h1><p class="sub">从真实需求出发，追求克制的视觉与扎实的交互。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags"><span class="tag">Vue</span><span class="tag">Design System</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags"><span class="tag">Spring Boot</span><span class="tag">ECharts</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div></div></a>
+</div></div>
+<footer><span>© 2026 PORTFOLIO</span><span>Y2K · LIQUID CHROME</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S17 工业机械 Industrial</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1c1c1c;--steel:#2a2a2a;--metal:#3d3d3d;--orange:#ff6b1a;--yellow:#ffc300;--text:#d4d4d4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Roboto Mono',monospace;line-height:1.6;
+background-image:repeating-linear-gradient(45deg,transparent 0 12px,rgba(255,255,255,.015) 12px 13px)}
+.nav{background:var(--steel);border-bottom:4px solid var(--orange);border-top:2px solid #111;position:relative}
+.nav::before{content:'';position:absolute;top:6px;left:0;right:0;height:2px;background:repeating-linear-gradient(90deg,var(--yellow) 0 24px,#111 24px 48px);opacity:.4}
+.nav-in{max-width:1150px;margin:0 auto;padding:20px 40px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--orange)}
+.links{display:flex;gap:4px}
+.links a{color:var(--text);text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:.1em;padding:8px 16px;background:var(--metal);border-left:2px solid #111}
+.links a:hover{background:var(--orange);color:#111}
+.wrap{max-width:1150px;margin:0 auto;padding:0 40px}
+.hero{padding:70px 0 50px;border-bottom:4px solid var(--metal)}
+.eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px}
+h1{font-family:'Oswald',sans-serif;font-size:clamp(40px,6.5vw,74px);font-weight:700;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.sub{margin-top:20px;font-size:15px;color:#999;max-width:54ch;border-left:4px solid var(--orange);padding-left:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px;padding:44px 0 80px}
+.card{background:var(--steel);border:2px solid #111;border-bottom:4px solid var(--orange);text-decoration:none;color:var(--text);display:block;transition:.2s}
+.card:hover{background:var(--metal);border-bottom-color:var(--yellow)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;filter:grayscale(.3) contrast(1.15)}
+.cbody{padding:18px 20px 22px}
+.ctitle{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;margin-bottom:6px}
+.csub{font-size:13px;color:#999}
+.tags{margin-top:14px;font-size:11px;color:var(--yellow);text-transform:uppercase;letter-spacing:.1em}
+.tag{margin-right:12px;border:1px solid var(--metal);padding:2px 8px}
+footer{background:var(--steel);border-top:4px solid var(--orange);padding:24px 40px;max-width:1150px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#888}
+</style>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><div class="brand">⌬ PORTFOLIO SYS</div><div class="links"><a href="#">作品</a><a href="#">关于</a><a href="#">联系</a></div></div></div>
+<div class="wrap hero"><div class="eyebrow">// SELECTED WORKS / UNIT-01</div><h1>界面设计与<br>前端实现</h1><p class="sub">从真实需求出发，追求克制的视觉与扎实的交互。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags"><span class="tag">Vue</span><span class="tag">DS</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags"><span class="tag">Boot</span><span class="tag">ECharts</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div></div></a>
+</div></div>
+<footer><span>© 2026 PORTFOLIO</span><span>INDUSTRIAL v1.0</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S11 终端 Terminal</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--border:#30363d;--green:#3fb950;--cyan:#58a6ff;--dim:#8b949e;--yellow:#d29922}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#c9d1d9;font-family:'JetBrains Mono',monospace;line-height:1.7;font-size:14px}
+.nav{border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:10}
+.nav-in{max-width:1100px;margin:0 auto;padding:12px 30px;display:flex;align-items:center;gap:16px}
+.dots{display:flex;gap:7px}
+.dots i{width:12px;height:12px;border-radius:50%;display:block}
+.dots i:nth-child(1){background:#ff5f56}.dots i:nth-child(2){background:#ffbd2e}.dots i:nth-child(3){background:#27c93f}
+.brand{color:var(--green);font-weight:700;margin-left:8px}
+.links{margin-left:auto;display:flex;gap:24px;font-size:13px}
+.links a{color:var(--cyan);text-decoration:none}.links a::before{content:'./'} .links a:hover{color:var(--green)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 30px}
+.hero{padding:70px 0 50px}
+.eyebrow{color:var(--dim);font-size:13px;margin-bottom:14px}
+.eyebrow b{color:var(--green)}
+h1{font-size:clamp(30px,4.5vw,48px);font-weight:700;line-height:1.15;color:#fff;margin-bottom:8px}
+h1::before{content:'> ';color:var(--green)}
+.cursor{display:inline-block;width:10px;height:1.1em;background:var(--green);vertical-align:-2px;animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.sub{margin-top:18px;font-size:15px;color:var(--dim);max-width:56ch}
+.sub::before{content:'# ';color:var(--yellow)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;padding-bottom:80px}
+.card{background:var(--panel);border:1px solid var(--border);text-decoration:none;color:#c9d1d9;display:block;transition:.2s;border-radius:6px;overflow:hidden}
+.card:hover{border-color:var(--green);box-shadow:0 0 12px rgba(63,185,80,.3)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;filter:grayscale(.4) contrast(1.1);opacity:.9}
+.cbody{padding:16px 18px 20px}
+.ctitle{font-size:16px;font-weight:700;color:var(--green);margin-bottom:6px}
+.ctitle::before{content:'> '}
+.csub{font-size:13px;color:var(--dim)}
+.tags{margin-top:12px;font-size:12px;color:var(--cyan)}
+.tag::before{content:'[';color:var(--dim)} .tag::after{content:']';color:var(--dim)}
+.tag{margin-right:6px}
+footer{border-top:1px solid var(--border);padding:24px 30px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><div class="dots"><i></i><i></i><i></i></div><div class="brand">~/portfolio</div><div class="links"><a href="#">作品</a><a href="#">关于</a><a href="#">联系</a></div></div></div>
+<div class="wrap hero"><div class="eyebrow"><b>user@portfolio</b>:~$ ls selected-works</div><h1>界面设计与前端实现<span class="cursor"></span></h1><p class="sub">从真实需求出发，追求克制的视觉与扎实的交互。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags"><span class="tag">Vue</span><span class="tag">DS</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags"><span class="tag">Boot</span><span class="tag">ECharts</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div></div></a>
+</div></div>
+<footer><span>© 2026 Portfolio</span><span>exit 0</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

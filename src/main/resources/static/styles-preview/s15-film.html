@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S15 复古胶片 Retro Film</title>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e8e0d0;--film:#2a2520;--ink:#2a2520;--orange:#c65d21;--cream:#f4ede0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Courier Prime',monospace;line-height:1.6;font-size:15px}
+.nav{background:var(--film);color:var(--cream);border-bottom:6px solid var(--orange)}
+.nav-in{max-width:1100px;margin:0 auto;padding:16px 40px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:'DM Serif Display',serif;font-size:26px;font-style:italic;letter-spacing:.02em}
+.links{display:flex;gap:26px;font-size:13px;text-transform:uppercase;letter-spacing:.1em}
+.links a{color:var(--cream);text-decoration:none;opacity:.7}.links a:hover{opacity:1;color:var(--orange)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 40px}
+.hero{padding:70px 0 50px;position:relative}
+.eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+h1{font-family:'DM Serif Display',serif;font-size:clamp(42px,7vw,76px);line-height:1.02;letter-spacing:-.01em}
+.sub{margin-top:22px;font-size:16px;color:#5a4a3a;max-width:54ch;border-left:3px solid var(--orange);padding-left:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:32px;padding-bottom:80px}
+.card{text-decoration:none;color:var(--ink);display:block;transition:.3s}
+.card:hover{transform:translateY(-4px)}
+.frame{background:var(--cream);padding:12px 12px 40px;box-shadow:0 4px 16px rgba(42,37,32,.25);position:relative}
+.frame::after{content:attr(data-idx);position:absolute;bottom:10px;right:14px;font-size:11px;color:var(--orange);letter-spacing:.1em}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;filter:sepia(.3) contrast(1.05) saturate(.9)}
+.cbody{padding:16px 4px 0}
+.ctitle{font-family:'DM Serif Display',serif;font-size:24px;line-height:1.15;margin-bottom:8px}
+.csub{font-size:14px;color:#5a4a3a}
+.tags{margin-top:12px;font-size:12px;color:var(--orange);letter-spacing:.08em;text-transform:uppercase}
+.tag{margin-right:10px}
+footer{background:var(--film);color:var(--cream);padding:26px 40px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><div class="brand">Portfolio Film</div><div class="links"><a href="#">作品</a><a href="#">关于</a><a href="#">联系</a></div></div></div>
+<div class="wrap hero"><div class="eyebrow">Kodak / 2026</div><h1>界面设计与前端实现</h1><p class="sub">从真实需求出发，追求克制的视觉与扎实的交互。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><div class="frame" data-idx="01A"><img src="/img/1.jpg" alt=""></div><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags"><span class="tag">Vue</span><span class="tag">DS</span></div></div></a>
+<a class="card" href="#"><div class="frame" data-idx="02A"><img src="/img/1.jpg" alt=""></div><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags"><span class="tag">Boot</span><span class="tag">ECharts</span></div></div></a>
+<a class="card" href="#"><div class="frame" data-idx="03A"><img src="/img/1.jpg" alt=""></div><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div></div></a>
+</div></div>
+<footer><span>© 2026 PORTFOLIO</span><span>Retro Film · 35mm</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

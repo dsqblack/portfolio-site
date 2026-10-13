@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S02 瑞士极简 Swiss</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#e30613;--ink:#111;--gray:#888}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#fff;color:var(--ink);font-family:'Inter',sans-serif;line-height:1.5}
+.nav{border-bottom:2px solid #111}
+.nav-in{max-width:1200px;margin:0 auto;padding:22px 40px;display:flex;justify-content:space-between;align-items:baseline}
+.brand{font-size:22px;font-weight:700;letter-spacing:-.03em}
+.links{display:flex;gap:28px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.links a{color:var(--ink);text-decoration:none}.links a:hover{color:var(--red)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.hero{padding:90px 0 60px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.hero-num{font-size:13px;font-weight:700;color:var(--red);letter-spacing:.1em}
+h1{font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1;letter-spacing:-.04em;margin-top:16px}
+.sub{font-size:16px;color:var(--gray);line-height:1.7;padding-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-top:2px solid #111;padding-bottom:80px}
+.card{text-decoration:none;color:inherit;border-bottom:1px solid #ddd;padding:0 0 24px;border-right:2px solid #fff}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:grayscale(1);transition:.3s}
+.card:hover img{filter:grayscale(0)}
+.cbody{padding:18px 0}
+.ctitle{font-size:19px;font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
+.csub{font-size:13px;color:var(--gray)}
+.tags{margin-top:12px;font-size:11px;font-weight:600;color:var(--red);text-transform:uppercase;letter-spacing:.08em}
+footer{border-top:2px solid #111;padding:30px 40px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px;color:var(--gray);letter-spacing:.05em}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in"><div class="brand">PORTFOLIO</div><div class="links"><a href="#">Work</a><a href="#">About</a><a href="#">Contact</a></div></div></nav>
+<div class="wrap hero"><div><div class="hero-num">01 / SELECTED WORKS</div><h1>界面设计<br>与前端实现</h1></div><p class="sub">这里是我参与设计与开发的作品，从真实需求出发，追求克制的视觉与扎实的交互。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags">Vue · Design System</div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags">Spring Boot · ECharts</div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags">HTML · CSS</div></div></a>
+</div></div>
+<footer><span>© 2026 PORTFOLIO</span><span>SWISS STYLE</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

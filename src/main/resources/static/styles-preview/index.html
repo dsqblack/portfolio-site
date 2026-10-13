@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>风格预览 — 20 种方案</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#16161a;--card:#1f1f24;--line:#2e2e35;--ink:#e8e8ea;--dim:#8a8a94;--accent:#7c9dff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.5}
+.head{max-width:1280px;margin:0 auto;padding:60px 40px 30px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h1{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.02em}
+.intro{margin-top:14px;color:var(--dim);font-size:15px;max-width:60ch}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px 80px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:36px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;text-decoration:none;color:var(--ink);transition:.2s;display:block;position:relative;overflow:hidden}
+.item:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 16px 40px -20px rgba(124,157,255,.5)}
+.num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);margin-bottom:10px}
+.name{font-size:17px;font-weight:600;margin-bottom:6px}
+.en{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.04em}
+.swatches{display:flex;gap:6px;margin-top:16px}
+.swatches i{width:22px;height:22px;border-radius:5px;display:block;border:1px solid rgba(255,255,255,.1)}
+.note{max-width:1280px;margin:0 auto;padding:0 40px 60px;font-size:13px;color:var(--dim)}
+.note code{font-family:'JetBrains Mono',monospace;background:#222;padding:2px 7px;border-radius:4px;color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="head">
+  <div class="eyebrow">// Style Proposals · 2026</div>
+  <h1>20 种风格方案预览</h1>
+  <p class="intro">每一版都是完整的独立主页，用同一份内容（标题 / 简介 / 3 个项目卡）渲染。挑一个方向，后续再细化调整。</p>
+</div>
+<div class="wrap"><div class="grid" id="grid"></div></div>
+<div class="note">加分项：作品数据、图片路径均指向 <code>/img/1.jpg</code>。选好后告诉我编号即可。</div>
+
+<script>
+const styles = [
+  ['s01-editorial','编辑风','Editorial','#faf8f5','#14120f','#c8553d'],
+  ['s02-swiss','瑞士极简','Swiss Minimal','#ffffff','#111111','#e30613'],
+  ['s03-cyberpunk','赛博朋克','Cyberpunk','#0a0014','#00f0ff','#ff00a0'],
+  ['s04-newspaper','报纸风','Newspaper','#f4ecd8','#1a1712','#a52a1a'],
+  ['s05-glass','玻璃拟态','Glassmorphism','#667eea','#764ba2','#f093fb'],
+  ['s06-neumorphism','新拟物','Neumorphism','#e6e9ef','#ffffff','#5a7bd8'],
+  ['s07-memphis','孟菲斯','Memphis','#fdf6e3','#ff5d8f','#00b4d8'],
+  ['s08-bauhaus','包豪斯','Bauhaus','#f5f1e8','#d62828','#003049'],
+  ['s09-vaporwave','蒸汽波','Vaporwave','#1a0033','#ff71ce','#01cdfe'],
+  ['s10-aurora','极光渐变','Aurora','#0b0b14','#00ffb4','#7850ff'],
+  ['s11-terminal','终端','Terminal','#0d1117','#3fb950','#58a6ff'],
+  ['s12-magazine','杂志封面','Magazine','#f0ebe3','#0d0d0d','#ff3b30'],
+  ['s13-handdrawn','手绘涂鸦','Handdrawn','#fdfbf5','#4a6fa5','#e63946'],
+  ['s14-pixel','像素风','Pixel 8-bit','#1a1c2c','#a7f070','#41a6f6'],
+  ['s15-film','复古胶片','Retro Film','#e8e0d0','#2a2520','#c65d21'],
+  ['s16-wabisabi','日式侘寂','Wabi-sabi','#f2efe9','#2e2b26','#6b7158'],
+  ['s17-industrial','工业机械','Industrial','#1c1c1c','#ff6b1a','#ffc300'],
+  ['s18-international','瑞士国际主义','International','#ffffff','#000000','#666666'],
+  ['s19-popart','波普艺术','Pop Art','#ffe600','#ff2d95','#00d9ff'],
+  ['s20-y2k','Y2K 液态金属','Y2K Chrome','#0a0a0f','#4fc3ff','#c8ced6'],
+];
+
+document.getElementById('grid').innerHTML = styles.map((s,i) => `
+  <a class="item" href="/styles-preview/${s[0]}.html" target="_blank">
+    <div class="num">S${String(i+1).padStart(2,'0')}</div>
+    <div class="name">${s[1]}</div>
+    <div class="en">${s[2]}</div>
+    <div class="swatches"><i style="background:${s[3]}"></i><i style="background:${s[4]}"></i><i style="background:${s[5]}"></i></div>
+  </a>
+`).join('');
+</script>
+</body>
+</html>

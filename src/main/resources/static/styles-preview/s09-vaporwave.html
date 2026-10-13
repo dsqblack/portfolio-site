@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S09 蒸汽波 Vaporwave</title>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff71ce;--cyan:#01cdfe;--purple:#b967ff;--bg:#1a0033}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#fff;font-family:'Rajdhani',sans-serif;line-height:1.6;min-height:100vh;
+background-image:linear-gradient(180deg,#1a0033,#2d0055 50%,#0d001a),repeating-linear-gradient(0deg,transparent 0 38px,rgba(255,113,206,.06) 38px 40px)}
+.nav{border-bottom:3px solid var(--pink);box-shadow:0 4px 30px rgba(255,113,206,.5)}
+.nav-in{max-width:1100px;margin:0 auto;padding:20px 40px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:'Monoton',cursive;font-size:26px;color:var(--cyan);text-shadow:0 0 20px var(--cyan)}
+.links{display:flex;gap:26px;font-size:15px;font-weight:700;letter-spacing:.1em}
+.links a{color:var(--pink);text-decoration:none;text-shadow:0 0 10px var(--pink)}.links a:hover{color:var(--cyan)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 40px}
+.hero{padding:90px 0 60px;text-align:center}
+.eyebrow{font-size:14px;color:var(--cyan);letter-spacing:.4em;margin-bottom:20px;text-shadow:0 0 10px var(--cyan)}
+h1{font-size:clamp(40px,7vw,76px);font-weight:700;line-height:1.05;background:linear-gradient(90deg,var(--pink),var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.02em}
+.sub{margin:24px auto 0;font-size:18px;max-width:52ch;color:#d0a0ff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:30px;padding-bottom:90px}
+.card{background:rgba(45,0,85,.6);border:2px solid var(--purple);text-decoration:none;color:#fff;transition:.3s;display:block;box-shadow:0 0 25px rgba(185,103,255,.4)}
+.card:hover{transform:translateY(-5px);box-shadow:0 0 40px var(--pink);border-color:var(--pink)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;filter:hue-rotate(40deg) saturate(1.5) contrast(1.1)}
+.cbody{padding:20px 22px 24px}
+.ctitle{font-size:22px;font-weight:700;color:var(--cyan);margin-bottom:6px;letter-spacing:.03em;text-shadow:0 0 10px rgba(1,205,254,.6)}
+.csub{font-size:15px;color:#d0a0ff}
+.tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.tag{font-size:11px;border:1px solid var(--pink);color:var(--pink);padding:3px 10px;letter-spacing:.1em}
+footer{border-top:2px solid var(--cyan);padding:30px 40px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;font-size:13px;color:var(--cyan);letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><div class="brand">P O R T F O L I O</div><div class="links"><a href="#">作品</a><a href="#">关于</a><a href="#">联系</a></div></div></div>
+<div class="wrap hero"><div class="eyebrow">SELECTED WORKS</div><h1>界面设计与前端实现</h1><p class="sub">从真实需求出发，追求克制的视觉与扎实的交互。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags"><span class="tag">VUE</span><span class="tag">DS</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags"><span class="tag">BOOT</span><span class="tag">ECHARTS</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div></div></a>
+</div></div>
+<footer><span>© 2026 PORTFOLIO</span><span>ＶＡＰＯＲＷＡＶＥ</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S03 赛博朋克 Cyberpunk</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--cyan:#00f0ff;--pink:#ff00a0;--yellow:#f7ff00;--bg:#0a0014;--panel:#14002b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#fff;font-family:'Share Tech Mono',monospace;line-height:1.6;background-image:radial-gradient(circle at 20% 10%,rgba(255,0,160,.15),transparent 40%),radial-gradient(circle at 80% 90%,rgba(0,240,255,.15),transparent 40%)}
+.nav{border-bottom:2px solid var(--cyan);box-shadow:0 0 20px rgba(0,240,255,.4)}
+.nav-in{max-width:1200px;margin:0 auto;padding:18px 40px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:'Orbitron',sans-serif;font-size:22px;font-weight:900;color:var(--cyan);text-shadow:0 0 12px var(--cyan);letter-spacing:.05em}
+.links{display:flex;gap:28px;font-size:14px;text-transform:uppercase}
+.links a{color:var(--pink);text-decoration:none;text-shadow:0 0 8px var(--pink)}.links a:hover{color:var(--yellow)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.hero{padding:90px 0 70px;position:relative}
+.eyebrow{font-size:13px;color:var(--yellow);letter-spacing:.3em;margin-bottom:16px}
+h1{font-family:'Orbitron',sans-serif;font-size:clamp(38px,6vw,68px);font-weight:900;line-height:1.05;color:#fff;text-shadow:3px 3px 0 var(--pink),-3px -3px 0 var(--cyan);letter-spacing:.02em}
+.sub{margin-top:22px;font-size:16px;color:#a0c0d0;max-width:54ch;border-left:3px solid var(--cyan);padding-left:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px;padding-bottom:90px}
+.card{background:var(--panel);border:1px solid var(--cyan);padding:0;text-decoration:none;color:#fff;position:relative;transition:.2s;display:block}
+.card:hover{box-shadow:0 0 30px rgba(0,240,255,.6);transform:translateY(-3px)}
+.card::before{content:'';position:absolute;top:-1px;left:-1px;width:14px;height:14px;border-top:2px solid var(--pink);border-left:2px solid var(--pink);z-index:2}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;filter:saturate(1.4) contrast(1.1);mix-blend-mode:luminosity;opacity:.85}
+.cbody{padding:20px 22px 24px}
+.ctitle{font-family:'Orbitron',sans-serif;font-size:19px;font-weight:600;color:var(--cyan);margin-bottom:8px;letter-spacing:.03em}
+.csub{font-size:14px;color:#a0c0d0}
+.tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.tag{font-size:11px;background:rgba(255,0,160,.15);border:1px solid var(--pink);color:var(--pink);padding:2px 8px;text-transform:uppercase}
+footer{border-top:2px solid var(--pink);padding:30px 40px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px;color:var(--cyan)}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in"><div class="brand">PORTFOLIO.exe</div><div class="links"><a href="#">[WORK]</a><a href="#">[ABOUT]</a><a href="#">[CONTACT]</a></div></div></nav>
+<div class="wrap hero"><div class="eyebrow">// SELECTED_WORKS.log</div><h1>界面设计与前端实现</h1><p class="sub">从真实需求出发，追求克制的视觉与扎实的交互。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags"><span class="tag">Vue</span><span class="tag">DS</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags"><span class="tag">Boot</span><span class="tag">ECharts</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div></div></a>
+</div></div>
+<footer><span>© 2026 PORTFOLIO</span><span>SYSTEM.ONLINE</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

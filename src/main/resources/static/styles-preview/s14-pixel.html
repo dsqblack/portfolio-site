@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S14 像素风 Pixel</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1c2c;--panel:#29366f;--green:#a7f070;--cyan:#41a6f6;--pink:#ef7dce;--yellow:#ffcd75;--purple:#b13e53}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#f4f4f4;font-family:'VT323',monospace;line-height:1.6;font-size:20px;image-rendering:pixelated}
+.nav{border-bottom:4px solid var(--green);background:var(--panel)}
+.nav-in{max-width:1000px;margin:0 auto;padding:16px 30px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:'Press Start 2P',monospace;font-size:16px;color:var(--yellow);line-height:1.6}
+.links{display:flex;gap:24px;font-size:20px}
+.links a{color:var(--cyan);text-decoration:none}.links a:hover{color:var(--green)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 30px}
+.hero{padding:50px 0 40px;text-align:center}
+.eyebrow{font-family:'Press Start 2P',monospace;font-size:10px;color:var(--pink);margin-bottom:20px;line-height:1.8}
+h1{font-family:'Press Start 2P',monospace;font-size:clamp(24px,4.5vw,42px);line-height:1.5;color:var(--green);text-shadow:4px 4px 0 #0a0c18}
+.sub{margin-top:22px;font-size:22px;color:#c0c8e0;max-width:52ch;margin-left:auto;margin-right:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding-bottom:80px}
+.card{background:var(--panel);border:4px solid #0a0c18;text-decoration:none;color:#fff;display:block;box-shadow:inset -4px -4px 0 rgba(0,0,0,.4),inset 4px 4px 0 rgba(255,255,255,.15);transition:.15s}
+.card:hover{transform:translateY(-4px);border-color:var(--yellow)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-bottom:4px solid #0a0c18;filter:saturate(1.3) contrast(1.15)}
+.cbody{padding:18px 18px 22px}
+.ctitle{font-family:'Press Start 2P',monospace;font-size:12px;color:var(--yellow);line-height:1.7;margin-bottom:10px}
+.csub{font-size:19px;color:#c0c8e0}
+.tags{margin-top:12px;font-size:18px;color:var(--green)}
+.tag{margin-right:8px}.tag::before{content:'▸'}
+footer{border-top:4px solid var(--green);padding:26px 30px;max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;font-size:18px;color:var(--cyan)}
+</style>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><div class="brand">◄PORTFOLIO►</div><div class="links"><a href="#">作品</a><a href="#">关于</a><a href="#">联系</a></div></div></div>
+<div class="wrap hero"><div class="eyebrow">★ SELECTED WORKS ★</div><h1>界面设计与<br>前端实现</h1><p class="sub">从真实需求出发，追求克制的视觉与扎实的交互。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags"><span class="tag">VUE</span><span class="tag">DS</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags"><span class="tag">BOOT</span><span class="tag">ECHARTS</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div></div></a>
+</div></div>
+<footer><span>© 2026 PORTFOLIO</span><span>8-BIT EDITION</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

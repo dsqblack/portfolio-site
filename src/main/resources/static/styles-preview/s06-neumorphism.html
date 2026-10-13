@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S06 新拟物 Neumorphism</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e6e9ef;--shadow-dark:#c3c9d4;--shadow-light:#ffffff;--ink:#3a4252;--accent:#5a7bd8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Poppins',sans-serif;line-height:1.6}
+.nav{max-width:1200px;margin:0 auto;padding:22px 40px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-size:22px;font-weight:600;color:var(--accent)}
+.links{display:flex;gap:26px;font-size:15px}
+.links a{color:var(--ink);text-decoration:none;transition:.2s}
+.links a:hover{color:var(--accent)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.hero{padding:70px 0 60px}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:600}
+h1{font-size:clamp(38px,6vw,64px);font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.sub{margin-top:22px;font-size:17px;color:#6b7488;max-width:54ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:34px;padding-bottom:90px}
+.card{background:var(--bg);border-radius:24px;padding:20px;text-decoration:none;color:var(--ink);transition:.3s;display:block;
+box-shadow:8px 8px 18px var(--shadow-dark),-8px -8px 18px var(--shadow-light)}
+.card:hover{box-shadow:12px 12px 26px var(--shadow-dark),-12px -12px 26px var(--shadow-light);transform:translateY(-3px)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:16px;display:block;margin-bottom:18px}
+.cbody{padding:0 6px 8px}
+.ctitle{font-size:21px;font-weight:600;margin-bottom:6px}
+.csub{font-size:14px;color:#6b7488}
+.tags{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.tag{font-size:12px;color:var(--accent);background:var(--bg);padding:5px 12px;border-radius:12px;
+box-shadow:3px 3px 6px var(--shadow-dark),-3px -3px 6px var(--shadow-light)}
+footer{padding:36px 40px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;font-size:13px;color:#6b7488}
+</style>
+</head>
+<body>
+<div class="nav"><div class="brand">作品集</div><div class="links"><a href="#">作品</a><a href="#">关于</a><a href="#">联系</a></div></div>
+<div class="wrap hero"><div class="eyebrow">Selected Works</div><h1>界面设计与前端实现</h1><p class="sub">从真实需求出发，追求克制的视觉与扎实的交互。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags"><span class="tag">Vue</span><span class="tag">Design System</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags"><span class="tag">Spring Boot</span><span class="tag">ECharts</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div></div></a>
+</div></div>
+<footer><span>© 2026 Portfolio</span><span>Neumorphism</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

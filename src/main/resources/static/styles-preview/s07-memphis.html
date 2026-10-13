@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S07 孟菲斯 Memphis</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fdf6e3;--pink:#ff5d8f;--blue:#00b4d8;--yellow:#ffd60a;--green:#06d6a0;--ink:#1a1a2e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-serif;line-height:1.6;overflow-x:hidden}
+.nav{border-bottom:4px solid var(--ink);background:#fff;position:relative}
+.nav::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--pink) 0 20px,var(--yellow) 20px 40px,var(--blue) 40px 60px,var(--green) 60px 80px)}
+.nav-in{max-width:1200px;margin:0 auto;padding:20px 40px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:'Baloo 2',cursive;font-size:26px;font-weight:800}
+.links{display:flex;gap:22px;font-size:15px;font-weight:700}
+.links a{color:var(--ink);text-decoration:none;border:3px solid var(--ink);padding:6px 14px;background:var(--yellow);box-shadow:3px 3px 0 var(--ink);transition:.15s}
+.links a:nth-child(2){background:var(--pink);box-shadow:3px 3px 0 var(--ink)}
+.links a:nth-child(3){background:var(--green)}
+.links a:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.hero{padding:80px 0 60px;position:relative}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;background:var(--ink);color:#fff;padding:6px 14px;margin-bottom:20px;transform:rotate(-2deg)}
+h1{font-family:'Baloo 2',cursive;font-size:clamp(44px,7vw,80px);font-weight:800;line-height:1.02;letter-spacing:-.01em}
+h1 span{color:var(--pink)}
+.sub{margin-top:22px;font-size:18px;max-width:54ch;font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:34px;padding-bottom:90px}
+.card{background:#fff;border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);text-decoration:none;color:var(--ink);transition:.15s;display:block;overflow:hidden}
+.card:hover{transform:translate(4px,4px);box-shadow:4px 4px 0 var(--ink)}
+.card:nth-child(2){box-shadow:8px 8px 0 var(--pink)}
+.card:nth-child(2):hover{box-shadow:4px 4px 0 var(--pink)}
+.card:nth-child(3){box-shadow:8px 8px 0 var(--blue)}
+.card:nth-child(3):hover{box-shadow:4px 4px 0 var(--blue)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-bottom:4px solid var(--ink)}
+.cbody{padding:20px 22px 24px}
+.ctitle{font-family:'Baloo 2',cursive;font-size:23px;font-weight:800;margin-bottom:6px}
+.csub{font-size:15px;font-weight:500}
+.tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.tag{font-size:12px;font-weight:700;border:3px solid var(--ink);padding:2px 10px;background:var(--yellow)}
+.tag:nth-child(2){background:var(--pink);color:#fff}
+footer{border-top:4px solid var(--ink);padding:30px 40px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;font-weight:700}
+</style>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><div class="brand">作品集 ✦</div><div class="links"><a href="#">作品</a><a href="#">关于</a><a href="#">联系</a></div></div></div>
+<div class="wrap hero"><div class="eyebrow">✦ SELECTED WORKS</div><h1>界面设计<span>与</span><br>前端实现</h1><p class="sub">从真实需求出发，追求克制的视觉与扎实的交互。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags"><span class="tag">Vue</span><span class="tag">DS</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags"><span class="tag">Boot</span><span class="tag">ECharts</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div></div></a>
+</div></div>
+<footer><span>© 2026 Portfolio</span><span>✦ MEMPHIS ✦</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

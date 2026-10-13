@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S16 日式侘寂 Wabi-sabi</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2efe9;--ink:#2e2b26;--stone:#8a8578;--sand:#ded7c9;--moss:#6b7158}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.9;font-weight:300;
+background-image:radial-gradient(circle at 100% 100%,rgba(222,215,201,.6),transparent 60%)}
+.nav{padding:34px 0}
+.nav-in{max-width:940px;margin:0 auto;padding:0 50px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:'Noto Serif JP',serif;font-size:20px;letter-spacing:.3em;font-weight:500}
+.links{display:flex;gap:36px;font-size:14px;color:var(--stone)}
+.links a{color:var(--stone);text-decoration:none;letter-spacing:.15em;transition:.3s}
+.links a:hover{color:var(--moss)}
+.wrap{max-width:940px;margin:0 auto;padding:0 50px}
+.hero{padding:80px 0 70px}
+.eyebrow{font-size:12px;letter-spacing:.4em;color:var(--stone);text-transform:uppercase;margin-bottom:32px}
+h1{font-family:'Noto Serif JP',serif;font-size:clamp(34px,5.5vw,58px);font-weight:300;line-height:1.4;letter-spacing:.08em}
+.sub{margin-top:30px;font-size:16px;color:var(--stone);max-width:46ch;line-height:2.1}
+.line{width:40px;height:1px;background:var(--moss);margin:40px 0}
+.grid{display:grid;grid-template-columns:1fr;gap:60px;padding-bottom:100px}
+.card{text-decoration:none;color:var(--ink);display:grid;grid-template-columns:1.4fr 1fr;gap:44px;align-items:center}
+.card:nth-child(even){grid-template-columns:1fr 1.4fr;direction:rtl}
+.card:nth-child(even)>*{direction:ltr}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:saturate(.7) contrast(.95);border:1px solid var(--sand)}
+.cbody{padding:10px 0}
+.ctitle{font-family:'Noto Serif JP',serif;font-size:27px;font-weight:500;line-height:1.4;letter-spacing:.05em;margin-bottom:16px}
+.csub{font-size:15px;color:var(--stone);line-height:2}
+.tags{margin-top:20px;font-size:12px;color:var(--moss);letter-spacing:.2em}
+.tag{margin-right:16px}
+footer{padding:50px;max-width:940px;margin:0 auto;text-align:center;font-size:12px;color:var(--stone);letter-spacing:.3em;border-top:1px solid var(--sand)}
+</style>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><div class="brand">作品集</div><div class="links"><a href="#">作品</a><a href="#">关于</a><a href="#">联系</a></div></div></div>
+<div class="wrap hero"><div class="eyebrow">Selected Works</div><h1>界面设计と<br>前端实现</h1><div class="line"></div><p class="sub">从真实需求出发，追求克制的视觉与扎实的交互。少即是多，留白即呼吸。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags"><span class="tag">VUE</span><span class="tag">DESIGN SYSTEM</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags"><span class="tag">SPRING BOOT</span><span class="tag">ECHARTS</span></div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div></div></a>
+</div></div>
+<footer>© 2026 PORTFOLIO · 侘寂</footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

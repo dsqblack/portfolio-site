@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S04 报纸风 Newspaper</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ecd8;--ink:#1a1712;--red:#a52a1a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:'Songti SC','SimSun',serif;line-height:1.6}
+.nav{border-bottom:3px double var(--ink);border-top:3px double var(--ink);margin-top:24px}
+.nav-in{max-width:1000px;margin:0 auto;padding:14px 30px;display:flex;justify-content:space-between;align-items:center;font-size:13px}
+.brand{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;text-align:center;flex:1;letter-spacing:-.01em}
+.links{display:flex;gap:18px;font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.links a{color:var(--ink);text-decoration:none}
+.dateline{max-width:1000px;margin:0 auto;padding:8px 30px;display:flex;justify-content:space-between;font-size:11px;border-bottom:1px solid var(--ink);letter-spacing:.08em}
+.wrap{max-width:1000px;margin:0 auto;padding:0 30px}
+.hero{padding:44px 0 30px;border-bottom:1px solid var(--ink)}
+h1{font-family:'Playfair Display',serif;font-size:clamp(40px,7vw,76px);font-weight:900;line-height:1.02;text-align:center;letter-spacing:-.01em}
+.sub{text-align:center;font-size:15px;margin-top:18px;color:#5a5347;font-style:italic}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:0;padding:30px 0 60px}
+.main-art{border-right:1px solid var(--ink);padding-right:26px}
+.side{padding-left:26px}
+.card{text-decoration:none;color:inherit;display:block;margin-bottom:26px}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;filter:sepia(.35) contrast(1.05);border:1px solid var(--ink)}
+.ctitle{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;margin:14px 0 8px;line-height:1.15}
+.side .ctitle{font-size:20px}
+.csub{font-size:14px;color:#5a5347}
+.side .csub{font-size:13px}
+.tags{margin-top:10px;font-size:11px;color:var(--red);text-transform:uppercase;letter-spacing:.1em;font-family:monospace}
+.divider{border-top:1px solid var(--ink);margin:8px 0 24px}
+footer{border-top:3px double var(--ink);padding:24px 30px;max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.08em}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in"><div class="links"><a href="#">作品</a><a href="#">关于</a></div><div class="brand">作品集日报</div><div class="links"><a href="#">联系</a><a href="#">归档</a></div></div></nav>
+<div class="dateline"><span>第 001 期</span><span>2026 年 · 作品特刊</span><span>定价：无价</span></div>
+<div class="wrap hero"><h1>界面设计与<br>前端实现</h1><p class="sub">— 从真实需求出发，追求克制的视觉与扎实的交互 —</p></div>
+<div class="wrap"><div class="grid">
+<div class="main-art">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="ctitle">界面重构计划：一套企业级后台的重生</div><div class="csub">从混乱到有序，视觉与交互的全面重构</div><div class="tags">VUE · DESIGN SYSTEM</div></a>
+</div>
+<div class="side">
+<a class="card" href="#"><div class="divider"></div><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div></a>
+<a class="card" href="#"><div class="divider"></div><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div></a>
+</div>
+</div></div>
+<footer><span>© 2026 作品集日报</span><span>NEWSPAPER STYLE</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>

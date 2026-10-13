@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S12 杂志封面 Magazine</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700;6..96,900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f0ebe3;--ink:#0d0d0d;--accent:#ff3b30}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.5}
+.nav{border-bottom:2px solid var(--ink);position:relative}
+.nav-in{max-width:1160px;margin:0 auto;padding:16px 40px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:'Bodoni Moda',serif;font-size:34px;font-weight:900;font-style:italic;letter-spacing:-.02em}
+.brand span{color:var(--accent)}
+.links{display:flex;gap:28px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.12em}
+.links a{color:var(--ink);text-decoration:none}.links a:hover{color:var(--accent)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 40px}
+.hero{padding:70px 0 20px;position:relative}
+.issue{position:absolute;top:70px;right:40px;text-align:right;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;line-height:1.8}
+.issue b{color:var(--accent);font-size:13px}
+h1{font-family:'Bodoni Moda',serif;font-size:clamp(56px,11vw,140px);font-weight:900;line-height:.85;letter-spacing:-.04em;text-transform:uppercase}
+h1 em{font-style:italic;font-weight:700;color:var(--accent)}
+.sub{margin-top:30px;font-size:17px;max-width:46ch;columns:1;border-top:2px solid var(--ink);padding-top:18px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding:50px 0 0;border-top:2px solid var(--ink);margin-top:36px}
+.card{text-decoration:none;color:var(--ink);display:block;transition:.3s}
+.card:hover{transform:translateY(-4px)}
+.card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border:2px solid var(--ink);filter:contrast(1.05)}
+.cbody{padding:16px 0 0}
+.ctitle{font-family:'Bodoni Moda',serif;font-size:24px;font-weight:900;line-height:1.1;margin-bottom:8px}
+.csub{font-size:13px;color:#555;line-height:1.6}
+.tags{margin-top:12px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+footer{border-top:2px solid var(--ink);padding:26px 40px;max-width:1160px;margin:40px auto 0;display:flex;justify-content:space-between;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><div class="brand">Portfolio<span>.</span></div><div class="links"><a href="#">作品</a><a href="#">关于</a><a href="#">联系</a></div></div></div>
+<div class="wrap hero"><div class="issue">ISSUE <b>NO.01</b><br>2026 / COLLECTOR'S<br>SELECTED WORKS</div><h1>界面<br><em>设计</em><br>与前端</h1><p class="sub">从真实需求出发，追求克制的视觉与扎实的交互。这里收录了我参与设计与开发的项目。</p></div>
+<div class="wrap"><div class="grid">
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">界面重构计划</div><div class="csub">企业级后台视觉与交互重构</div><div class="tags">Vue · Design System</div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">数据看板系统</div><div class="csub">面向运维的实时监控面板</div><div class="tags">Spring Boot · ECharts</div></div></a>
+<a class="card" href="#"><img src="/img/1.jpg" alt=""><div class="cbody"><div class="ctitle">内容平台</div><div class="csub">创作者内容发布与展示</div><div class="tags">HTML · CSS</div></div></a>
+</div></div>
+<footer><span>© 2026 PORTFOLIO</span><span>MAGAZINE EDITION</span></footer>
+<script src="/styles-preview/switcher.js"></script>
+</body>
+</html>
