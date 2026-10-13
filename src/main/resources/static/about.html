@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于 — Portfolio</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">作品<span>集</span></a>
+    <div class="nav-links">
+      <a href="/">作品</a>
+      <a href="/about" class="active">关于</a>
+      <a href="/contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<main class="page-content wrap">
+  <div class="page-eyebrow">About</div>
+  <h1 class="page-title">关于我</h1>
+  <div class="prose">
+    <p>我是一名前端 / UI 方向的开发者，关注界面设计如何服务于真实的使用场景——不是堆砌视觉特效，而是把信息组织清楚、把交互做顺。</p>
+
+    <h3>我在做什么</h3>
+    <p>日常涉猎 Web 前端开发与界面设计，从排版、配色到组件实现，习惯从需求出发推导设计，而不是套模板。作品集中收录的项目覆盖数据看板、工具类应用与内容展示型界面。</p>
+
+    <h3>技能</h3>
+    <p>HTML / CSS / JavaScript，Spring Boot 后端开发，UI 设计与设计系统搭建。熟悉响应式布局与原生 Web 技术，追求轻依赖、可维护的实现方式。</p>
+
+    <h3>这个站点</h3>
+    <p>本站的后端使用 Spring Boot + MyBatis + MySQL 搭建，前端为原生 HTML/CSS/JS，作品数据通过管理后台在线维护。</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <span>© <span id="year"></span> Portfolio</span>
+  <span>Built with Spring Boot</span>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

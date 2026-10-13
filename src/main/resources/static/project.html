@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作品详情 — Portfolio</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">作品<span>集</span></a>
+    <div class="nav-links">
+      <a href="/">作品</a>
+      <a href="/about">关于</a>
+      <a href="/contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<main class="detail wrap" id="detail">
+  <a href="/" class="detail-back">← 返回作品列表</a>
+  <div class="empty" id="loading">加载中…</div>
+</main>
+
+<footer class="footer">
+  <span>© <span id="year"></span> Portfolio</span>
+  <span>Built with Spring Boot</span>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+function escapeHtml(s){
+  return (s || '').replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+const id = location.pathname.split('/').pop();
+
+fetch('/api/project/' + encodeURIComponent(id))
+  .then(r => r.json())
+  .then(res => {
+    const el = document.getElementById('detail');
+    if (res.code !== 0 || !res.data) {
+      el.innerHTML = '<a href="/" class="detail-back">← 返回作品列表</a><div class="empty">' + escapeHtml(res.message || '项目不存在') + '</div>';
+      return;
+    }
+    const p = res.data;
+    document.title = p.title + ' — Portfolio';
+    const tags = (p.techStack || '').split(',').map(t => t.trim()).filter(Boolean);
+    const tagsHtml = tags.length
+      ? `<div class="detail-tags">${tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>`
+      : '';
+    const cover = p.coverUrl
+      ? `<div class="detail-cover"><img src="${escapeHtml(p.coverUrl)}" alt="${escapeHtml(p.title)}"></div>`
+      : '';
+    let links = '';
+    if (p.demoUrl || p.repoUrl) {
+      links = '<div class="detail-links">';
+      if (p.demoUrl) links += `<a class="btn btn-primary" href="${escapeHtml(p.demoUrl)}" target="_blank" rel="noopener">在线演示 ↗</a>`;
+      if (p.repoUrl) links += `<a class="btn" href="${escapeHtml(p.repoUrl)}" target="_blank" rel="noopener">源码 ↗</a>`;
+      links += '</div>';
+    }
+    el.innerHTML = `
+      <a href="/" class="detail-back">← 返回作品列表</a>
+      <h1 class="detail-title">${escapeHtml(p.title)}</h1>
+      <p class="detail-sub">${escapeHtml(p.subtitle || '')}</p>
+      ${tagsHtml}
+      ${cover}
+      <div class="detail-desc">${escapeHtml(p.description || '')}</div>
+      ${links}
+    `;
+  })
+  .catch(() => {
+    document.getElementById('detail').innerHTML =
+      '<a href="/" class="detail-back">← 返回作品列表</a><div class="empty">加载失败</div>';
+  });
+</script>
+</body>
+</html>

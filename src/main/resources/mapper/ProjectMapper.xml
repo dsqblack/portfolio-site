@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.portfolio.mapper.ProjectMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.portfolio.entity.Project">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="subtitle" property="subtitle"/>
+        <result column="description" property="description"/>
+        <result column="cover_url" property="coverUrl"/>
+        <result column="tech_stack" property="techStack"/>
+        <result column="demo_url" property="demoUrl"/>
+        <result column="repo_url" property="repoUrl"/>
+        <result column="sort_order" property="sortOrder"/>
+        <result column="published" property="published"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <sql id="BaseColumns">
+        id, title, subtitle, description, cover_url, tech_stack,
+        demo_url, repo_url, sort_order, published, created_at, updated_at
+    </sql>
+
+    <select id="listPublished" resultMap="BaseResultMap">
+        SELECT <include refid="BaseColumns"/>
+        FROM portfolio_project
+        WHERE published = 1
+        ORDER BY sort_order ASC, id DESC
+    </select>
+
+    <select id="listAll" resultMap="BaseResultMap">
+        SELECT <include refid="BaseColumns"/>
+        FROM portfolio_project
+        ORDER BY sort_order ASC, id DESC
+    </select>
+
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT <include refid="BaseColumns"/>
+        FROM portfolio_project
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.example.portfolio.entity.Project"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO portfolio_project
+            (title, subtitle, description, cover_url, tech_stack,
+             demo_url, repo_url, sort_order, published)
+        VALUES
+            (#{title}, #{subtitle}, #{description}, #{coverUrl}, #{techStack},
+             #{demoUrl}, #{repoUrl}, #{sortOrder}, #{published})
+    </insert>
+
+    <update id="update" parameterType="com.example.portfolio.entity.Project">
+        UPDATE portfolio_project
+        SET title       = #{title},
+            subtitle    = #{subtitle},
+            description = #{description},
+            cover_url   = #{coverUrl},
+            tech_stack  = #{techStack},
+            demo_url    = #{demoUrl},
+            repo_url    = #{repoUrl},
+            sort_order  = #{sortOrder},
+            published   = #{published}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM portfolio_project WHERE id = #{id}
+    </delete>
+
+</mapper>

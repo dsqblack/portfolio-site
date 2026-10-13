@@ -1,0 +1,17 @@
+[Unit]
+Description=Portfolio Site
+After=network.target mariadb.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/portfolio-site
+EnvironmentFile=/opt/portfolio-site/env
+ExecStart=/usr/bin/java -jar /opt/portfolio-site/portfolio-site-1.0.0.jar
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

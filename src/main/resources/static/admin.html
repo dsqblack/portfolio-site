@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理后台 — Portfolio</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- 登录 -->
+<div class="login-box" id="loginBox">
+  <h2>管理后台</h2>
+  <p>请输入访问口令</p>
+  <div class="field">
+    <label>口令</label>
+    <input type="password" id="tokenInput" placeholder="Admin Token" autocomplete="current-password">
+  </div>
+  <div id="loginError" class="hint" style="display:none;color:#c8553d"></div>
+  <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="doLogin()">登录</button>
+</div>
+
+<!-- 主体 -->
+<div class="admin-wrap" id="adminMain" style="display:none">
+  <div class="admin-bar">
+    <div class="admin-title">作品管理</div>
+    <div style="display:flex;gap:12px">
+      <button class="btn btn-primary" onclick="openModal()">+ 新增作品</button>
+      <button class="btn" onclick="doLogout()">退出</button>
+    </div>
+  </div>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th class="col-cover">封面</th>
+        <th>标题</th>
+        <th>技术栈</th>
+        <th>排序</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div class="empty" id="emptyTip" style="display:none">暂无作品，点击右上角新增</div>
+</div>
+
+<!-- 弹窗 -->
+<div class="modal-mask" id="modalMask">
+  <div class="modal">
+    <h3 id="modalTitle">新增作品</h3>
+    <input type="hidden" id="f-id">
+    <div class="field">
+      <label>标题 *</label>
+      <input id="f-title" placeholder="项目名称">
+    </div>
+    <div class="field">
+      <label>一句话简介</label>
+      <input id="f-subtitle" placeholder="副标题 / 简介">
+    </div>
+    <div class="field">
+      <label>详细描述</label>
+      <textarea id="f-description" placeholder="项目背景、你的角色、实现要点…"></textarea>
+    </div>
+    <div class="field">
+      <label>封面图地址</label>
+      <input id="f-coverUrl" placeholder="/img/xxx.png 或完整 URL">
+    </div>
+    <div class="field">
+      <label>技术栈（逗号分隔）</label>
+      <input id="f-techStack" placeholder="HTML, CSS, JavaScript">
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>在线演示地址</label>
+        <input id="f-demoUrl" placeholder="https://…">
+      </div>
+      <div class="field">
+        <label>源码地址</label>
+        <input id="f-repoUrl" placeholder="https://…">
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>排序（越小越靠前）</label>
+        <input id="f-sortOrder" type="number" value="0">
+      </div>
+      <div class="field">
+        <label>发布状态</label>
+        <select id="f-published" style="width:100%;padding:11px 13px;font-size:14px;border:1px solid var(--line);border-radius:2px;background:var(--bg);color:var(--ink);font-family:inherit">
+          <option value="1">已发布</option>
+          <option value="0">隐藏</option>
+        </select>
+      </div>
+    </div>
+    <div id="modalError" class="hint" style="display:none;color:#c8553d"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal()">取消</button>
+      <button class="btn btn-primary" onclick="saveProject()">保存</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TOKEN_KEY = 'portfolio_admin_token';
+let token = sessionStorage.getItem(TOKEN_KEY) || '';
+
+function escapeHtml(s){
+  return (s || '').replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+function api(path, opts = {}){
+  opts.headers = Object.assign({
+    'X-Admin-Token': token,
+    'Content-Type': 'application/json'
+  }, opts.headers || {});
+  return fetch(path, opts).then(r => r.json());
+}
+
+/* ---------- 登录 ---------- */
+function doLogin(){
+  const val = document.getElementById('tokenInput').value.trim();
+  if (!val) return;
+  fetch('/api/admin/project/login', {
+    method: 'POST',
+    headers: {'X-Admin-Token': val}
+  }).then(r => r.json()).then(res => {
+    if (res.code === 0) {
+      token = val;
+      sessionStorage.setItem(TOKEN_KEY, val);
+      enterAdmin();
+    } else {
+      showLoginError(res.message || '口令错误');
+    }
+  }).catch(() => showLoginError('无法连接服务器'));
+}
+function showLoginError(msg){
+  const el = document.getElementById('loginError');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+function doLogout(){
+  sessionStorage.removeItem(TOKEN_KEY);
+  location.reload();
+}
+document.getElementById('tokenInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+
+/* ---------- 进入后台 ---------- */
+function enterAdmin(){
+  document.getElementById('loginBox').style.display = 'none';
+  document.getElementById('adminMain').style.display = 'block';
+  loadList();
+}
+
+/* ---------- 列表 ---------- */
+let projectCache = [];
+
+function loadList(){
+  api('/api/admin/project/list').then(res => {
+    if (res.code !== 0) {
+      if ((res.message || '').includes('授权')) { doLogout(); }
+      return;
+    }
+    const list = res.data || [];
+    projectCache = list;
+    const tbody = document.getElementById('tbody');
+    const empty = document.getElementById('emptyTip');
+    if (!list.length) {
+      tbody.innerHTML = '';
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+    tbody.innerHTML = list.map((p, i) => `
+      <tr>
+        <td class="col-cover">${p.coverUrl
+          ? `<img src="${escapeHtml(p.coverUrl)}" alt="">`
+          : '<span style="color:var(--ink-3)">—</span>'}</td>
+        <td>${escapeHtml(p.title)}</td>
+        <td style="color:var(--ink-2);font-size:13px">${escapeHtml(p.techStack || '—')}</td>
+        <td>${p.sortOrder ?? 0}</td>
+        <td>${p.published === 1
+          ? '<span class="badge badge-on">已发布</span>'
+          : '<span class="badge badge-off">隐藏</span>'}</td>
+        <td>
+          <div class="actions">
+            <button class="mini-btn" onclick="editProject(${i})">编辑</button>
+            <button class="mini-btn danger" onclick="deleteProject(${p.id})">删除</button>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+  });
+}
+
+/* ---------- 弹窗 ---------- */
+function openModal(p){
+  document.getElementById('modalTitle').textContent = p ? '编辑作品' : '新增作品';
+  document.getElementById('f-id').value = p ? p.id : '';
+  document.getElementById('f-title').value = p ? (p.title || '') : '';
+  document.getElementById('f-subtitle').value = p ? (p.subtitle || '') : '';
+  document.getElementById('f-description').value = p ? (p.description || '') : '';
+  document.getElementById('f-coverUrl').value = p ? (p.coverUrl || '') : '';
+  document.getElementById('f-techStack').value = p ? (p.techStack || '') : '';
+  document.getElementById('f-demoUrl').value = p ? (p.demoUrl || '') : '';
+  document.getElementById('f-repoUrl').value = p ? (p.repoUrl || '') : '';
+  document.getElementById('f-sortOrder').value = p ? (p.sortOrder ?? 0) : 0;
+  document.getElementById('f-published').value = p ? (p.published ?? 1) : 1;
+  document.getElementById('modalError').style.display = 'none';
+  document.getElementById('modalMask').classList.add('open');
+}
+function closeModal(){
+  document.getElementById('modalMask').classList.remove('open');
+}
+
+function editProject(i){ openModal(projectCache[i]); }
+
+function collectForm(){
+  return {
+    title: document.getElementById('f-title').value.trim(),
+    subtitle: document.getElementById('f-subtitle').value.trim(),
+    description: document.getElementById('f-description').value,
+    coverUrl: document.getElementById('f-coverUrl').value.trim(),
+    techStack: document.getElementById('f-techStack').value.trim(),
+    demoUrl: document.getElementById('f-demoUrl').value.trim(),
+    repoUrl: document.getElementById('f-repoUrl').value.trim(),
+    sortOrder: parseInt(document.getElementById('f-sortOrder').value, 10) || 0,
+    published: parseInt(document.getElementById('f-published').value, 10)
+  };
+}
+
+function saveProject(){
+  const data = collectForm();
+  if (!data.title) {
+    const el = document.getElementById('modalError');
+    el.textContent = '标题不能为空';
+    el.style.display = 'block';
+    return;
+  }
+  const id = document.getElementById('f-id').value;
+  const path = id ? '/api/admin/project/' + id : '/api/admin/project';
+  const method = id ? 'PUT' : 'POST';
+  api(path, { method, body: JSON.stringify(data) }).then(res => {
+    if (res.code === 0) {
+      closeModal();
+      loadList();
+    } else {
+      const el = document.getElementById('modalError');
+      el.textContent = res.message || '保存失败';
+      el.style.display = 'block';
+    }
+  });
+}
+
+function deleteProject(id){
+  if (!confirm('确定删除这个作品？此操作不可恢复。')) return;
+  api('/api/admin/project/' + id, { method: 'DELETE' }).then(res => {
+    if (res.code === 0) loadList();
+    else alert(res.message || '删除失败');
+  });
+}
+
+/* ---------- 初始化 ---------- */
+if (token) {
+  api('/api/admin/project/list').then(res => {
+    if (res.code === 0) enterAdmin();
+    else doLogout();
+  }).catch(() => doLogout());
+}
+</script>
+</body>
+</html>
