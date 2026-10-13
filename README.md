@@ -12,25 +12,37 @@
 
 1. 建库建表：
 
-   mysql -uroot -p < sql/schema.sql
+   mysql -h127.0.0.1 -uroot -p < sql/schema.sql
 
-2. 启动（默认端口 8082）：
+2. 配置本地凭据（不提交）：
 
-   mvn spring-boot:run
+   复制 `src/main/resources/application-local.yml.example` 为
+   `application-local.yml`，填入数据库密码和管理口令。
 
-3. 访问：
+3. 启动（默认端口 8082，激活 local profile）：
+
+   mvn spring-boot:run -Dspring-boot.run.profiles=local
+
+4. 访问：
 
    - 作品列表：http://localhost:8082/
    - 管理后台：http://localhost:8082/admin
 
 ## 配置
 
-`src/main/resources/application.yml`
+`src/main/resources/application.yml` — 不含任何凭据，全部走环境变量占位：
 
-- 数据库连接、端口
-- 管理口令：`portfolio.admin.token`（默认 `change-me-please`，务必修改）
+| 配置项 | 环境变量 | 默认值 |
+|--------|----------|--------|
+| 数据库地址 | `DB_URL` | localhost:3306/portfolio |
+| 数据库用户 | `DB_USERNAME` | root |
+| 数据库密码 | `DB_PASSWORD` | (空) |
+| 管理口令 | `PORTFOLIO_ADMIN_TOKEN` | change-me-please |
 
-生产环境请通过环境变量覆盖口令：`PORTFOLIO_ADMIN_TOKEN`
+本地开发用 `application-local.yml`（已 gitignore）覆盖。
+生产环境用环境变量或 systemd EnvironmentFile（见 `deploy/`）。
+
+**切勿把真实密码 / 口令提交到仓库。**
 
 ## 打包部署
 

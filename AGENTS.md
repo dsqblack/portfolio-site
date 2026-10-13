@@ -43,4 +43,6 @@ Portfolio Site — 个人作品集网站
 ## Rules
 - 只做本地修改，不自动编译或启动服务
 - 修改包含 SQL 时必须保留原 WHERE 条件
-- 管理口令配置项：`portfolio.admin.token`，生产用环境变量 `PORTFOLIO_ADMIN_TOKEN` 覆盖
+- 配置凭据一律走环境变量占位，禁止把真实密码/口令写入被跟踪的文件
+- 本地真实凭据放 `application-local.yml`（已 gitignore），模板见 `application-local.yml.example`
+- 环境变量：`DB_URL` / `DB_USERNAME` / `DB_PASSWORD` / `PORTFOLIO_ADMIN_TOKEN`
